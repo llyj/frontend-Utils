@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OddsToolUtil = void 0;
+const EOddsFormat_1 = require("./EOddsFormat");
 const FloatHelper_1 = require("./FloatHelper");
 /** 赔率转换 */
 class OddsToolUtil {
@@ -13,22 +14,22 @@ class OddsToolUtil {
      * @param isEu 是否欧赔
      */
     static getPL(oFormat, hVal, pVal, gVal, isEu) {
-        if (isEu && oFormat !== 3 /* EOddsFormat.American */ && oFormat !== 6 /* EOddsFormat.Fraction */)
+        if (isEu && oFormat !== EOddsFormat_1.EOddsFormat.American && oFormat !== EOddsFormat_1.EOddsFormat.Fraction)
             return [this.toFixZero(hVal), this.toFixZero(pVal), this.toFixZero(gVal)];
         switch (oFormat) {
-            case 1 /* EOddsFormat.HongKong */:
+            case EOddsFormat_1.EOddsFormat.HongKong:
                 return [hVal, pVal, gVal];
-            case 2 /* EOddsFormat.Indonesian */:
+            case EOddsFormat_1.EOddsFormat.Indonesian:
                 return [this.toIN(hVal), pVal, this.toIN(gVal)];
-            case 3 /* EOddsFormat.American */:
+            case EOddsFormat_1.EOddsFormat.American:
                 if (isEu)
                     return [this.toUSEu(hVal), this.toUSEu(pVal), this.toUSEu(gVal)];
                 return [this.toUS(hVal), pVal, this.toUS(gVal)];
-            case 4 /* EOddsFormat.Decimal */:
+            case EOddsFormat_1.EOddsFormat.Decimal:
                 return [this.toEU(hVal), pVal, this.toEU(gVal)];
-            case 5 /* EOddsFormat.Malay */:
+            case EOddsFormat_1.EOddsFormat.Malay:
                 return [this.toML(hVal), pVal, this.toML(gVal)];
-            case 6 /* EOddsFormat.Fraction */:
+            case EOddsFormat_1.EOddsFormat.Fraction:
                 if (isEu)
                     return [this.toFractionEu(hVal), this.toFractionEu(pVal), this.toFractionEu(gVal)];
                 return [this.toFraction(hVal), pVal, this.toFraction(gVal)];
@@ -41,22 +42,22 @@ class OddsToolUtil {
      * @param isEu 是否欧赔
      */
     static changePL(oFormat, val, isEu) {
-        if (isEu && oFormat !== 3 /* EOddsFormat.American */ && oFormat !== 6 /* EOddsFormat.Fraction */)
+        if (isEu && oFormat !== EOddsFormat_1.EOddsFormat.American && oFormat !== EOddsFormat_1.EOddsFormat.Fraction)
             return this.toFixZero(val);
         switch (oFormat) {
-            case 1 /* EOddsFormat.HongKong */:
+            case EOddsFormat_1.EOddsFormat.HongKong:
                 return val;
-            case 2 /* EOddsFormat.Indonesian */:
+            case EOddsFormat_1.EOddsFormat.Indonesian:
                 return this.toIN(val);
-            case 3 /* EOddsFormat.American */:
+            case EOddsFormat_1.EOddsFormat.American:
                 if (isEu)
                     return this.toUSEu(val);
                 return this.toUS(val);
-            case 4 /* EOddsFormat.Decimal */:
+            case EOddsFormat_1.EOddsFormat.Decimal:
                 return this.toEU(val);
-            case 5 /* EOddsFormat.Malay */:
+            case EOddsFormat_1.EOddsFormat.Malay:
                 return this.toML(val);
-            case 6 /* EOddsFormat.Fraction */:
+            case EOddsFormat_1.EOddsFormat.Fraction:
                 if (isEu)
                     return this.toFractionEu(val);
                 return this.toFraction(val);

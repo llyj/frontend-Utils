@@ -1,5 +1,5 @@
 /** 赔率格式 */
-export declare const enum EOddsFormat {
+export declare enum EOddsFormat {
     HongKong = 1,
     Indonesian = 2,
     American = 3,

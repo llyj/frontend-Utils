@@ -1,5 +1,5 @@
 /** 赔率格式 */
-export const enum EOddsFormat {
+export enum EOddsFormat {
   HongKong = 1,
   Indonesian,
   American,
