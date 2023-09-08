@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Greeter = void 0;
-const Greeter = (name) => `Hello ${name}`;
-exports.Greeter = Greeter;
+exports.OddsToolUtil = void 0;
+var odds_1 = require("./odds");
+Object.defineProperty(exports, "OddsToolUtil", { enumerable: true, get: function () { return odds_1.OddsToolUtil; } });
